@@ -1,1 +1,2 @@
-ps5xploit.github.io
+
+https://ps5xploit.pages.dev
