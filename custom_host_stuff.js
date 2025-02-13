@@ -83,9 +83,20 @@ function create_payload_buttons() {
         btn.className = "btn mx-auto";
         btn.tabIndex = "0";
         btn.setAttribute('data-info', payload_map[i].info);
+
+        // Función que se ejecuta cuando se hace clic en el botón
         btn.onclick = async () => {
-            if (false) { showToast(payload_map[i].displayTitle + " added to queue.", 1000); }
+// Agregar el payload a la cola después de que se haya mostrado el popup
             window.local_payload_queue.push(payload_map[i]);
+            // Esperar 5 segundos antes de mostrar el popup para el payload-0 (etaHEN 2.0B)
+            setTimeout(() => {
+                if (i === 0) { // Solo mostrar el popup para el payload-0
+                    const mensaje = "\n🟡​ Loading etaHEN 2.0b ...\n Click 🆗​ when the notification disappears 🎮 ";
+                    alert(mensaje); // Mostrar el popup
+                }
+            }, 2000); // 2000 milisegundos = 5 segundos
+
+            
         };
 
         let btn_child = document.createElement("p");
